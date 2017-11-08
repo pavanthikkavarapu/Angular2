@@ -1,0 +1,3 @@
+function fun_two() {
+    return "I am from function two";
+}

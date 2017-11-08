@@ -1,0 +1,117 @@
+<!-- 
+Pipes.
+    Pipes are used to format the application data accroding to
+    application requirement.
+
+1.async
+    - used to pupulate the asynchronus data to view.
+
+Ex.
+   import {Onservable} from 'rxjs/Rx';
+   import 'rxjs/add/onservable/interval';
+
+   count=Observable.interval(1000);
+
+   <h1>{{count | async}}</h1>
+
+2.percent
+    - used to convert the values(" >1 " values) to the required percent.
+Ex.
+    var_one=0.9;
+    <h1>{{var_one | percent:'.2'}}</h1> //90.00%
+    <h1>{{var_one | percent:'.1'}}</h1> //90.0%
+    <h1>{{var_one | percent:'.'}}</h1> //90%
+
+3.number
+    - used to convert the numbers(Double values) to the application required format.
+
+Ex.
+    var_one=9.1234;
+    <h1>{{var_one | number:'2.1-2'}}<h1> 09.12
+    <h1>{{var_one | number:'3.1-3'}}<h1> 009.123
+    <h1>{{var_one | number:'2.1-4'}}<h1> 09.1234
+
+4.slice 
+
+    - used to display the required number of records from an array.
+
+    Ex.
+        array=[10,20,30,40,50];
+        <h1 *ngFor="let x of array | slice:1:3">
+            {{x}}
+        </h1>   
+        O/P:20
+            30 
+
+5.json
+    - used to convert the json objects to json strings.
+
+  Ex.
+        var_one={"id":1,"name":"Hello_1"};
+        <h1>{{var_one}}</h1>  // [Object object] 
+        <h1>{{var_one | json}} // {"id":1,"name":"Hello_1"}
+
+6.currency
+    - used to append the "USD" symbol to the numerical values.
+
+Ex.
+    var_one=100;
+    <h1>{{var_one | currency}}</h1> //USD 100
+
+
+7.date
+    - used to format the date accroding to application requirement.
+    var_one=new Date();
+    <h1>{{var_one | date:'shortTime'}}</h1>
+
+8.uppercase
+    - used to convert the lowercase characters to the uppercase.
+
+Ex.
+    var_one='hello';
+
+    {{var_one | uppercase}}  //HELLO
+
+
+9.lowercase
+
+    - used to convert the uppercase letters to lowercase letters.
+
+ Ex.
+    var_one="HELLO";
+
+    {{var_one | lowercase}} // hello   
+
+
+
+
+-->
+<!--
+<h1>{{number | currency}}</h1>
+<h1 style="color: red">{{todayDate}}</h1>
+<h1 style="color: red">{{todayDate | date:'shortTime'}}</h1>
+<h1 style="color: red">{{todayDate | date:'medium'}}</h1>
+<h1 style="color: red">{{todayDate | date:'short'}}</h1>
+<h1 style="color: red">{{todayDate | date:'dd-MM-yy'}}</h1>
+<h1 style="color: red">{{todayDate | date:' '}}</h1>
+<h1 style="color: red">{{todayDate | date:'fullDate'}}</h1>
+-->
+<h1>{{var_one | percent:'.2'}}
+<h1>{{var_two | number:'3.1-4'}}</h1>
+<h1>{{count | async}}</h1>
+<h1>{{name | uppercase}}</h1>
+<h1>{{name_one | lowercase}}</h1>
+<!--<h1 *ngFor="let x of array | slice:1:4">
+    {{x}}
+</h1>-->
+<h1 *ngFor="let x of array;let i=index">
+    <!-- <span *ngIf="i<2">
+        {{x}}
+    </span> -->
+
+    <span *ngIf="x!=10 && x!=50">
+        {{x}}
+    </span>        
+ </h1>   
+
+
